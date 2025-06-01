@@ -1,0 +1,288 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+header {
+  background-color: #005c99;
+  color: white;
+  padding: 1em;
+  text-align: center;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filters label {
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.filters select,
+.filters input {
+  margin-right: 20px;
+  padding: 5px;
+  min-width: 100px;
+}
+
+.property-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.image-gallery {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.image-gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.image-gallery img:hover {
+  opacity: 0.9;
+}
+
+.image-gallery .prev,
+.image-gallery .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 1.2em;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+}
+
+.image-gallery .prev { 
+  left: 5px; 
+}
+
+.image-gallery .next { 
+  right: 5px; 
+}
+
+.info {
+  padding: 15px;
+}
+
+.map-container {
+  padding: 10px;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 1em 2em;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+}
+
+.modal-content .close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  margin: 0.5em 0;
+  padding: 0.5em;
+}
+
+/* Fullscreen Image Modal */
+.image-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  flex-direction: column;
+}
+
+.image-modal.hidden {
+  display: none;
+}
+
+.image-modal-content {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  z-index: 2001;
+  transition: color 0.3s ease;
+}
+
+.image-close:hover {
+  color: #ccc;
+}
+
+.fullscreen-gallery {
+  position: relative;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fullscreen-gallery img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.fullscreen-prev,
+.fullscreen-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+  border: none;
+  font-size: 2em;
+  padding: 0.5em;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.fullscreen-prev:hover,
+.fullscreen-next:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.fullscreen-prev {
+  left: 20px;
+}
+
+.fullscreen-next {
+  right: 20px;
+}
+
+.image-slider {
+  width: 80%;
+  margin: 20px 0;
+  padding: 10px 0;
+}
+
+.slider-track {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.slider-thumb {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 3px solid transparent;
+  border-radius: 4px;
+  transition: border-color 0.3s ease, opacity 0.3s ease;
+  opacity: 0.7;
+}
+
+.slider-thumb:hover {
+  opacity: 1;
+  border-color: #007bff;
+}
+
+.slider-thumb.active {
+  border-color: #007bff;
+  opacity: 1;
+}
+
+.image-counter {
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fullscreen-prev,
+  .fullscreen-next {
+    font-size: 1.5em;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .fullscreen-prev {
+    left: 10px;
+  }
+  
+  .fullscreen-next {
+    right: 10px;
+  }
+  
+  .slider-thumb {
+    width: 60px;
+    height: 45px;
+  }
+  
+  .image-close {
+    font-size: 30px;
+    top: 10px;
+    right: 20px;
+  }
+}

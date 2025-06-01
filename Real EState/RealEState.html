@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Real Estate Listing Platform</title>
+  <link rel="stylesheet" href="RealEState.css">
+</head>
+<body>
+<header>
+  <h1>Real Estate Listings</h1>
+
+  <div class="filters">
+    <label for="location">Filter by City:</label>
+    <select id="location">
+      <option value="">All Cities</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Goa">Goa</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Hyderabad">Hyderabad</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Pune">Pune</option>
+      <option value="New York">New York</option>
+      <option value="London">London</option>
+      <option value="Sydney">Sydney</option>
+      <option value="Toronto">Toronto</option>
+      <option value="Berlin">Berlin</option>
+    </select>
+
+    <label for="propertyType">Filter by Property Type:</label>
+    <select id="propertyType">
+      <option value="">All Types</option>
+      <option value="Apartment">Apartment</option>
+      <option value="House">House</option>
+      <option value="Villa">Villa</option>
+      <option value="Flat">Flat</option>
+    </select>
+
+    <label for="minPrice">Min Price (₹):</label>
+    <input type="number" id="minPrice" placeholder="No Min" min="0" />
+
+    <label for="maxPrice">Max Price (₹):</label>
+    <input type="number" id="maxPrice" placeholder="No Max" min="0" />
+
+    <label for="sortBy">Sort By:</label>
+    <select id="sortBy">
+      <option value="">None</option>
+      <option value="priceAsc">Price: Low to High</option>
+      <option value="priceDesc">Price: High to Low</option>
+      <option value="locationAsc">Location: A to Z</option>
+      <option value="locationDesc">Location: Z to A</option>
+    </select>
+
+    <button onclick="filterProperties()">Search</button>
+  </div>
+</header>
+
+<div id="propertyList"></div>
+
+<!-- Modal for Contact Owner -->
+<div id="contactModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Contact Owner</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
+<!-- Fullscreen Image Modal -->
+<div id="imageModal" class="image-modal hidden">
+  <div class="image-modal-content">
+    <span class="image-close" onclick="closeImageModal()">&times;</span>
+    <div class="fullscreen-gallery">
+      <img id="fullscreenImage" src="" alt="Property Image" />
+      <button class="fullscreen-prev" onclick="changeFullscreenImage(-1)">❮</button>
+      <button class="fullscreen-next" onclick="changeFullscreenImage(1)">❯</button>
+    </div>
+    <div class="image-slider">
+      <div class="slider-track" id="sliderTrack"></div>
+    </div>
+    <div class="image-counter">
+      <span id="imageCounter">1 / 1</span>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="RealEState.js"></script>
+</body>
+</html>
